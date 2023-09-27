@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State private var alertIsVisible: Bool = false
-  @State private var sliderValue: Double = 50.0
-  @State private var game: Game = Game()
+  @State private var alertIsVisible = false
+  @State private var sliderValue = 50.0
+  @State private var game = Game()
   
   var body: some View {
     VStack {
