@@ -8,13 +8,18 @@
 import Foundation
 
 struct Game {
-  var target: Int = Int.random(in: 1...100)
+  private struct Contants {
+    static let minTargetValue: Int = 1
+    static let maxTargetValue: Int = 100
+  }
+  
+  var target: Int = Int.random(in: Contants.minTargetValue...Contants.maxTargetValue)
   var score: Int = 0
   var round: Int = 1
   
   func points(sliderValue: Int) -> Int {
     let difference = abs(target - sliderValue)
-    let points = 100 - difference
+    let points = Contants.maxTargetValue - difference
     
     return points
   }
