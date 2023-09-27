@@ -19,8 +19,6 @@ struct Game {
   
   func points(sliderValue: Int) -> Int {
     let difference = abs(target - sliderValue)
-    let points = Contants.maxTargetValue - difference
-    
-    return points
+    return Contants.maxTargetValue - abs(target - sliderValue)
   }
 }
