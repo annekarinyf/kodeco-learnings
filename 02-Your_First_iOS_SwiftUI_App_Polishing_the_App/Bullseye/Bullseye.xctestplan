@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "8EA8A038-0CE2-4E02-9CBA-6C85C86E2A6D",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Bullseye.xcodeproj",
+      "identifier" : "6B510E762AC1C511003BC5B4",
+      "name" : "Bullseye"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Bullseye.xcodeproj",
+        "identifier" : "6B4602492AC4155900BFC3AA",
+        "name" : "BullseyeTests"
+      }
+    }
+  ],
+  "version" : 1
+}
