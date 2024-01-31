@@ -23,7 +23,8 @@ struct Game {
     }
     
     mutating func startNewRound(points: Int) {
-        self.score += points
-        self.round += 1
+        score += points
+        round += 1
+        target = Int.random(in: Constants.minTargetValue...Constants.maxTargetValue)
     }
 }

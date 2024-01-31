@@ -89,7 +89,9 @@ struct HitMeButton: View {
             return Alert(
                 title: Text("Hello there"),
                 message: Text("The slider's value is \(Int(sliderValue.rounded())). You scored \(game.points(sliderValue: Int(sliderValue))) this round."),
-                dismissButton: .default(Text("Awesome"))
+                dismissButton: .default(Text("Awesome")) {
+                    game.startNewRound(points: game.points(sliderValue: Int(sliderValue)))
+                }
             )
         }
     }
