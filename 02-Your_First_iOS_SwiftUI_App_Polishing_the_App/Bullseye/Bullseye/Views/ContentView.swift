@@ -17,18 +17,11 @@ struct ContentView: View {
             BackgroundView(game: $game)
             VStack {
                 InstructionsView(game: $game)
-                SliderView(sliderValue: $sliderValue)
+                    .padding(.bottom, 100)
                 HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
             }
+            SliderView(sliderValue: $sliderValue)
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-        ContentView()
-            .preferredColorScheme(.dark)
     }
 }
 
@@ -36,9 +29,11 @@ struct InstructionsView: View {
     @Binding var game: Game
     
     var body: some View {
-        InstructionText(text: "🎯🎯🎯\nPut the Bullseye as close as you can to")
-            .padding(.horizontal, 30)
-        BigNumberText(text: String(game.target))
+        VStack {
+            InstructionText(text: "🎯🎯🎯\nPut the Bullseye as close as you can to")
+                .padding(.horizontal, 30)
+            BigNumberText(text: String(game.target))
+        }
     }
 }
 
@@ -94,5 +89,13 @@ struct HitMeButton: View {
                 }
             )
         }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+        ContentView()
+            .preferredColorScheme(.dark)
     }
 }
