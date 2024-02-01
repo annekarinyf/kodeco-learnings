@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct PointsView: View {
+    @Binding var alertIsVisible: Bool
+    @Binding var sliderValue: Double
+    @Binding var game: Game
+    
     var body: some View {
+        let roundedValue = Int(sliderValue.rounded())
+        let points = game.points(sliderValue: roundedValue)
+        
         VStack(spacing: 10) {
             InstructionText(text: "The slider's value is")
-            BigNumberText(text: "89")
-            BodyText(text: "You score 200 Points\n 😻😻😻")
+            BigNumberText(text: String(roundedValue))
+            BodyText(text: "You score \(points) Points\n 😻😻😻")
             Button {
-                // start new round
+                alertIsVisible = false
+                game.startNewRound(points: points)
             } label: {
                 ButtonText(text: "Start New Round")
             }
@@ -27,13 +35,15 @@ struct PointsView: View {
     }
 }
 
-#Preview("Portrait") {
-    PointsView()
-}
-
-
-#Preview("LandscapeRight") {
-    PointsView()
-        .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
-        .previewInterfaceOrientation(.landscapeRight)
+struct PointsView_Previews: PreviewProvider {
+    static private var alertIsVisible = Binding.constant(false)
+    static private var sliderValue = Binding.constant(50.0)
+    static private var game = Binding.constant(Game())
+    
+    static var previews: some View {
+        PointsView(alertIsVisible: alertIsVisible, sliderValue: sliderValue, game: game)
+        PointsView(alertIsVisible: alertIsVisible, sliderValue: sliderValue, game: game)
+            .previewInterfaceOrientation(.landscapeRight)
+            .preferredColorScheme(.dark)
+    }
 }
