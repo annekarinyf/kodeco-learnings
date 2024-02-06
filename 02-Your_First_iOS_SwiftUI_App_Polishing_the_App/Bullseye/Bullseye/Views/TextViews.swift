@@ -82,6 +82,30 @@ struct ButtonText: View {
     }
 }
 
+struct DateText: View {
+    var date: Date
+    
+    var body: some View {
+        Text(date, style: .time)
+            .bold()
+            .kerning(-0.2)
+            .foregroundColor(Color("TextColor"))
+            .font(.title3)
+    }
+}
+
+struct ScoreText: View {
+    var score: Int
+    
+    var body: some View {
+        Text(String(score))
+            .bold()
+            .kerning(-0.2)
+            .foregroundColor(Color("TextColor"))
+            .font(.title3)
+    }
+}
+
 
 struct TextViews_Previews: PreviewProvider {
     static var previews: some View {
@@ -92,6 +116,8 @@ struct TextViews_Previews: PreviewProvider {
             LabelText(text: "Score")
             BodyText(text: "You score 200 Points\n 😻😻😻")
             ButtonText(text: "Start New Round")
+            ScoreText(score: 10)
+            DateText(date: .now)
         }
         .padding()
     }
